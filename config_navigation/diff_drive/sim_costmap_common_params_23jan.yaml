@@ -1,0 +1,52 @@
+###################### Global
+
+#footprint: [[0.0, -0.5], [0, 0.5], [1.68,0.5], [1.8,0.0], [1.68,-0.5]]
+footprint: [[0.25, 0.0], [0.177, 0.177], [0.0,0.25], [-0.177, 0.177], [-0.25, 0.0], [-0.177, -0.177], [0.0, -0.25], [0.177, -0.177] ]
+
+transform_tolerance: 0.2
+map_type: costmap
+
+obstacle_layer:
+ enabled: true
+ footprint_clearing_enabled: false  # 15 feb added this line (default parameter is true)
+ map_topic:            "/map"
+ cost_scaling_factor:  0.01 
+ inflation_radius:  0.1
+ obstacle_range: 20.0 #3.0   
+ raytrace_range: 20.0 #4.0
+ track_unknown_space: true
+ combination_method: 1 # 1 :maximum 0:overwrite
+
+
+ observation_sources: laser_scan_sensor1
+ laser_scan_sensor1: {data_type: LaserScan, sensor_frame: /lidarL_link ,topic: /lidars, marking: true, clearing: true, expected_update_rate: 0.0}
+
+inflation_layer:
+  enabled:              true
+  map_topic:            "/map"
+  cost_scaling_factor:  0.01 
+  inflation_radius:  1
+
+static_layer:
+  enabled:              true
+  map_topic:            "/map"
+  cost_scaling_factor:  0.01 
+  inflation_radius:  1.0
+
+
+
+# observation_sources: laser_scan_sensor1 laser_scan_sensor2 laser_scan_sensor3 laser_scan_sensor4 laser_scan_sensor5 point_cloud_sensor
+# laser_scan_sensor1: {data_type: LaserScan, sensor_frame: /hokuyo1_link ,topic: /lidarL1, marking: true, clearing: true, expected_update_rate: 0.0}
+# laser_scan_sensor2: {data_type: LaserScan, sensor_frame: /hokuyo2_link , topic: /lidarR1, marking: true, clearing: true, expected_update_rate: 0.0}
+# laser_scan_sensor3: {data_type: LaserScan, sensor_frame: /hokuyo3_link , topic: /lidarL2, marking: true, clearing: true, expected_update_rate: 0.0}
+# laser_scan_sensor4: {data_type: LaserScan, sensor_frame: /hokuyo4_link , topic: /lidarR2, marking: true, clearing: true, expected_update_rate: 0.0}
+# laser_scan_sensor5: {data_type: LaserScan, sensor_frame: /hokuyo5_link, topic: /scan, marking: true, clearing: true, expected_update_rate: 0.0}
+
+# point_cloud_sensor: {data_type: PointCloud2, topic: /elp/points2, marking: true, clearing: true}
+
+# laser_scan_sensor2: {data_type: LaserScan, sensor_frame: /lidarR_link , topic: /lidars, marking: true, clearing: true, expected_update_rate: 0.0}
+
+# observation_sources: laser_scan_sensor1 point_cloud_sensor
+# laser_scan_sensor1: {data_type: LaserScan, sensor_frame: /hokuyo1_link ,topic: /scan, marking: true, clearing: true, expected_update_rate: 0.0}
+# point_cloud_sensor: {data_type: PointCloud2, topic: /elp/points2, marking: true, clearing: true}
+

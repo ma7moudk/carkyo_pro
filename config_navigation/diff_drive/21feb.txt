@@ -1,0 +1,4 @@
+costmap converter params max cluster pixels 150 # was 200
+global frame of local cosmap map # was odom
+
+ footprint_clearing_enabled: false / true  // was true

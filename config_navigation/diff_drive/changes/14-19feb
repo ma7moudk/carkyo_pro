@@ -1,0 +1,49 @@
+--------------------------------------------------------------------------------------------
+-min turning radius =4.3
+-result : updated after stepper change
+-CHANGE
+--------------------------------------------------------------------------------------------
+
+----------------------------------------------
+-rolling_window: true >> making this parameter false makes the local costmap as the global (like -map) "extemely bad"
+-result :still true
+-NO CHANGE
+--------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
+-costmap converter params:
+-our cluster_max_pts is 300 ( no need max is 200 )
+-map needs modification so that no gaps between pbstacles
+-result : CHANGED cluster_max_pts TO 200
+-CHANGE
+---------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
+-inflation radius shown in rviz visualization is inflation layer of global costmap not local.
+-so when robot has a problem in the inflation area , that isn't because of inflarion , it is due to min obstacle distance.
+-result : may increase inflation radius to improve global plan without affecting local plan.
+---------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
+-obstacle layer: @both local costmap , global costmap
+-footprint_clearing_enabled is true ( test that in dynamic obstacles )( it should be false if it -only affects static ones)
+-result :footprint_clearing_enabled: true  #added this line (default parameter is true)
+-NO CHANGE
+--------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
+-tried adding inflation_layer to localcosmp : (extremely bad concerning timing)
+-tried removing the 2 inflation_layers : isn't better + logically not good
+-result : STAY ONE INFLATION LAYER IN GLOBAL COSTMAP
+-NO CHANGE
+--------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
+-max_global plan lookahead 
+--------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
+-cmd_angle_instead_rotvel: True # 19Feb added this wasn't here (default:false)
+-twist to ack was modified so that steering = angular vel output
+--------------------------------------------------------------------------------------------
+
