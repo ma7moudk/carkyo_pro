@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="wheel_publisher" pkg="carkyo_pro" type="wheel_publisher.py" respawn="true" output="screen"/> 
+
+  <node name="imu_fix" pkg="carkyo_pro" type="fix_imu.py" respawn="true" output="screen"/>
+ 
+  <node name="imu2_fix" pkg="carkyo_pro" type="fix_imu2.py" respawn="true" output="screen"/>
+
+  <node name="monitor" pkg="carkyo_pro" type="node_monitor.py" respawn="true" output="screen"/>
+</launch>

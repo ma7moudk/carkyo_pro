@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+ <node pkg="tf" type="static_transform_publisher" name="imu"   args="1.57 -0.4 1.065 0 0 0 1  /base_footprint /imu_link  100"/>
+ <node pkg="tf" type="static_transform_publisher" name="imu2"   args="1.57 -0.4 1.065 0 0 0 1  /base_footprint /imu2_link  100"/>
+ <node pkg="tf" type="static_transform_publisher" name="gps"   args="1.14 0 1.495 0 0 0 1  /base_footprint /gps_link  100"/>
+ <node pkg="tf" type="static_transform_publisher" name="lidarL" args="1.8 0.09 0.46 0 0 0 1  /base_footprint /lidarL_link  100"/> 
+ <node pkg="tf" type="static_transform_publisher" name="lidarRight" args="1.8 -0.09 0.46 0 0 0 1  /base_footprint /lidarR_link  100"/>
+</launch>
